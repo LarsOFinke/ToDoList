@@ -186,6 +186,7 @@ class EntryWindow(QWidget):
         dlg = ConfirmDialog("Update", f"Update entry to '{entry}'?")
         if dlg.exec_():
             edit_entry(entry, self.entry_id)
+            self.txtBox_Entry.clear()
             self.lst_Entries.clear()
             self.load_entries()
     
@@ -194,6 +195,7 @@ class EntryWindow(QWidget):
         dlg = ConfirmDialog("Delete", f"Delete entry '{entry}'?")
         if dlg.exec_():
             delete_entry(self.entry_id)
+            self.txtBox_Entry.clear()
             self.lst_Entries.clear()
             self.load_entries()
     
@@ -293,6 +295,7 @@ class MainWindow(QMainWindow):
         if dlg.exec_():
             update_listname(listname, self.list_id)
             self.lst_Lists.clear()
+            self.txtBox_Listname.clear()
             self.load_lists()
     
     def delete_list(self):
@@ -300,6 +303,7 @@ class MainWindow(QMainWindow):
         dlg = ConfirmDialog("Delete", f"Delete the list '{listname}'?")
         if dlg.exec_():
             delete_list(self.list_id)
+            self.txtBox_Listname.clear()
             self.lst_Lists.clear()
             self.load_lists()
     
